@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TP03</string>
+    <string name="send">Send</string>
+    <string name="main_activity">Main Activity</string>
+    <string name="second_activity">Second Activity</string>
+    <string name="hint_et_main">Enter first value</string>
+    <string name="hint_et_second">Enter second value</string>
+    <string name="test">Test</string>
+</resources>
