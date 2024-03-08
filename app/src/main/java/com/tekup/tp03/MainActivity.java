@@ -29,32 +29,34 @@ public class MainActivity extends AppCompatActivity {
         TvMain = (TextView) findViewById(R.id.TvMain);
         BtnMain = (Button) findViewById(R.id.BtnMain);
 
-
         BtnMain.setOnClickListener(v -> {
             Intent intent = new Intent(this, SecondActivity.class);
             intent.putExtra("mainValue", EtMain.getText().toString());
-            startActivityForResult(intent, 1);
-            //activityResultLauncher.launch(intent);
+            //startActivityForResult(intent, 1);
+            activityResultLauncher.launch(intent);
         });
     }
 
     //2nd method
-/*
+
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
-                if (result.getResultCode() == 1) {
+                if (result.getResultCode() == RESULT_OK) {
                     Intent data = result.getData();
                     if (data != null) {
-                        String resultValue = data.getStringExtra("resultValue");
+                        String resultValue = data.getStringExtra("secondValue");
+                        if (resultValue.isEmpty()) {
+                            Toast.makeText(this, "empty from second", Toast.LENGTH_SHORT).show();
+                        }
+                        TvMain.setVisibility(View.VISIBLE);
                         TvMain.setText(resultValue);
                     }
                 }
             }
     );
 
-*/
-
+/*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -70,5 +72,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+*/
 }
